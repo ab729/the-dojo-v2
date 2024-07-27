@@ -6,6 +6,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 // pages & comps
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import Users from './components/Users';
 // pages
 import Dashboard from './pages/dashboard/Dashboard';
 import Create from "./pages/create/Create";
@@ -29,7 +30,7 @@ function App() {
               {!user && <Route path="/" element={<Navigate to="/login" />} />}
               {user && <Route path="/" Component={Dashboard} />}
 
-              <Route path="/project/:id" Component={Project} />
+              <Route path="/projects/:id" Component={Project} />
               <Route path="/create" Component={Create} />
 
               {user && <Route path="/login" element={<Navigate to="/" />} />}
@@ -39,6 +40,7 @@ function App() {
               {user && <Route path="/signup" element={<Navigate to="/" />} />}
             </Routes>
           </div>
+          {user && <Users />}
         </BrowserRouter>
       )}
     </div>
